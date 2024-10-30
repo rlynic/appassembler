@@ -152,7 +152,7 @@
                 <artifactItem>
                   <groupId>org.sonatype.jsw-binaries</groupId>
                   <artifactId>jsw-binaries</artifactId>
-                  <version>3.2.3.6</version>
+                  <version>3.2.3.8-SNAPSHOT</version>
                   <type>tar.gz</type>
                   <outputDirectory>${project.build.directory}/dependency/sonatype-jsw-binaries</outputDirectory>
                 </artifactItem>
@@ -188,6 +188,10 @@
 
                 <copy file="${project.build.directory}/dependency/sonatype-jsw-binaries/macosx-universal-64/lib/libwrapper.jnilib" tofile="${project.build.directory}/dependency/wrapper-delta-pack-3.2.3/lib/libwrapper-macosx-universal-64.jnilib" />
                 <copy file="${project.build.directory}/dependency/sonatype-jsw-binaries/macosx-universal-64/wrapper" tofile="${project.build.directory}/dependency/wrapper-delta-pack-3.2.3/bin/wrapper-macosx-universal-64" />
+
+
+                <copy file="${project.build.directory}/dependency/sonatype-jsw-binaries/linux-aarch64-64/lib/libwrapper.so" tofile="${project.build.directory}/dependency/wrapper-delta-pack-3.2.3/lib/libwrapper-linux-aarch64-64.so" />
+                <copy file="${project.build.directory}/dependency/sonatype-jsw-binaries/linux-aarch64-64/wrapper" tofile="${project.build.directory}/dependency/wrapper-delta-pack-3.2.3/bin/wrapper-linux-aarch64-64" />
 
                 <copy file="${project.build.directory}/dependency/karaf-jsw-binaries/org/apache/karaf/shell/wrapper/aix/ppc32/libwrapper.a" tofile="${project.build.directory}/dependency/wrapper-delta-pack-3.2.3/lib/libwrapper-aix-ppc-32.a" />
                 <copy file="${project.build.directory}/dependency/karaf-jsw-binaries/org/apache/karaf/shell/wrapper/aix/ppc32/karaf-wrapper" tofile="${project.build.directory}/dependency/wrapper-delta-pack-3.2.3/bin/wrapper-aix-ppc-32" />

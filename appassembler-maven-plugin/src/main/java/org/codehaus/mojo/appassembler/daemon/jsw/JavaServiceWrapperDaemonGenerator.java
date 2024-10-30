@@ -80,6 +80,8 @@ public class JavaServiceWrapperDaemonGenerator
             put( "linux-x86-32-exec", "wrapper-linux-x86-32" );
             put( "linux-x86-64-lib", "libwrapper-linux-x86-64.so" );
             put( "linux-x86-64-exec", "wrapper-linux-x86-64" );
+            put( "linux-aarch64-64-lib", "libwrapper-linux-aarch64-64.so" );
+            put( "linux-aarch64-64-exec", "wrapper-linux-aarch64-64" );
             put( "linux-ppc-64-lib", "libwrapper-linux-ppc-64.so" );
             put( "linux-ppc-64-exec", "wrapper-linux-ppc-64" );
             put( "macosx-ppc-32-lib", "libwrapper-macosx-ppc-32.jnilib" );
