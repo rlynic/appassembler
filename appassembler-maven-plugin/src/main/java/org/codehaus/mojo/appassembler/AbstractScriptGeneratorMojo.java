@@ -25,9 +25,7 @@ package org.codehaus.mojo.appassembler;
  */
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 import org.apache.maven.artifact.Artifact;
 import org.apache.maven.artifact.repository.ArtifactRepository;
@@ -132,6 +130,12 @@ public abstract class AbstractScriptGeneratorMojo
      */
     @Parameter( defaultValue = "etc" )
     protected String configurationDirectory;
+
+    /**
+     * Classifiers that require exclusion based on Classifiers
+     */
+    @Parameter
+    protected String excludeClassifiers;
 
     /**
      * The source directory for configuration files.
@@ -371,9 +375,16 @@ public abstract class AbstractScriptGeneratorMojo
                 artifactRepositoryFactory.createDeploymentArtifactRepository( "appassembler", "file://"
                     + outputDirectory + "/" + repositoryName, getArtifactRepositoryLayout(), false );
 
+            Set<String> excludeCs = new HashSet<String>();
+            if(null != excludeClassifiers && !"".equals(excludeClassifiers)){
+                excludeCs.addAll(Arrays.asList(excludeClassifiers.split(",")));
+            }
+
             for ( Artifact artifact : artifacts )
             {
-                installArtifact( artifact, artifactRepository, this.useTimestampInSnapshotFileName );
+                if(!excludeCs.contains(artifact.getClassifier())){
+                    installArtifact( artifact, artifactRepository, this.useTimestampInSnapshotFileName );
+                }
             }
 
             // install the project's artifact in the new repository
